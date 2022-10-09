@@ -5,13 +5,13 @@ Parse FormData into a json object using [jsonschema](https://json-schema.org/).
 ## Installation
 
 ```bash
-// npm
+# npm
 npm i formdata-jsonschema
 
-// yarn
+# yarn
 yarn i formdata-jsonschema
 
-// pnpm
+# pnpm
 pnpm i formdata-jsonschema
 ```
 
