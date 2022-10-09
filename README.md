@@ -5,14 +5,13 @@ Parse FormData into a json object using [jsonschema](https://json-schema.org/).
 ## Installation
 
 ```bash
+// npm
 npm i formdata-jsonschema
-```
 
-```bash
-yadn i formdata-jsonschema
-```
+// yarn
+yarn i formdata-jsonschema
 
-```bash
+// pnpm
 pnpm i formdata-jsonschema
 ```
 
@@ -47,3 +46,40 @@ const data = formDataToJson(formdata, schema);
 
 console.log(data);
 ```
+
+## Validation
+
+This library does not provide any validation methods.
+
+You can use any library that uses jsonschema for validation like [ajv](https://github.com/ajv-validator/ajv).
+
+```ts
+import { Schema, formdataToJson } from 'formdata-jsonschema';
+import Ajv from 'ajv';
+
+const ajv = new Ajv();
+
+const schema: Schema = {
+	type: 'object',
+	properties: {
+		string: { type: 'string' },
+		integer: { type: 'number' }
+	}
+};
+
+const validate = ajv.compile(schema);
+
+const formdata = new FormData();
+formdata.set('string', 'Hello World!');
+formdata.set('integer', '1234.5678');
+
+const data = formDataToJson(formdata, schema);
+const valid = validate(data);
+
+console.log(data);
+console.log(valid);
+```
+
+## Licence
+
+[MIT](./LICENSE)
