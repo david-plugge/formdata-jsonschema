@@ -24,7 +24,8 @@
 		"test": "jest",
 		"test:watch": "jest --watchAll",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write ."
+		"format": "prettier --plugin-search-dir . --write .",
+		"prepublishOnly": "npm run build"
 	},
 	"devDependencies": {
 		"@sinclair/typebox": "^0.24.44",
